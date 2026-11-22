@@ -7,7 +7,7 @@ import HeroMotion from "../components/HeroMotion";
 import { Activity, Code2, Cpu, Layers3 } from "lucide-react";
 import ScrollReveal from "../components/ScrollReveal";
 import ProjectShowcase from "../components/ProjectShowcase";
-import { ArrowDown, ArrowUpRight, FileText, Mail } from "lucide-react";
+import { ArrowDown, ArrowUpRight, Mail } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 const email = "nishtha_1278@tamu.edu";
@@ -54,9 +54,6 @@ export default function Home() {
               <a className="primary-button" href="#projects">
                 Explore projects <ArrowDown size={17} aria-hidden="true" />
               </a>
-              <a className="secondary-button" href="#resumes">
-                <FileText size={17} aria-hidden="true" /> Résumés
-              </a>
             </div>
             <div className="link-row socials">
               <a href={github} target="_blank" rel="noopener noreferrer">
@@ -102,34 +99,15 @@ export default function Home() {
           aria-labelledby="about-title"
         >
           <h2 id="about-title">About me</h2>
-          <div className="about-grid">
+          <div>
             <div className="about-copy">
               <p>
                 I’m a Computer Science student at Texas A&M fascinated by how
-                complex systems, both biological and mechanical,work under the
+                complex systems, both biological and mechanical, work under the
                 hood. I like using software and data to decode messy real-world
                 signals, figure out why things behave the way they do, and build
                 tools that make sense of it all.
               </p>
-            </div>
-            <div className="resume-panel" id="resumes">
-              <h3>Résumés</h3>
-              <a
-                href="/resume-swe.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Software engineering (PDF){" "}
-                <ArrowUpRight size={17} aria-hidden="true" />
-              </a>
-              <a
-                href="/resume-ai.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                AI / machine learning (PDF){" "}
-                <ArrowUpRight size={17} aria-hidden="true" />
-              </a>
             </div>
           </div>
           <AboutStats
