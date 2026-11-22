@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import OpeningSequence from "../components/OpeningSequence";
 
 export const metadata: Metadata = {
   title: "Nishtha Patel | Software Engineering & Applied ML",
@@ -8,8 +9,14 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en">
-      <body>{children}</body>
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: `try { if (localStorage.getItem("portfolio-theme") === "light") document.documentElement.dataset.theme = "light"; } catch {}` }} />
+      </head>
+      <body>
+        <OpeningSequence />
+        {children}
+      </body>
     </html>
   );
 }

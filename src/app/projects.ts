@@ -36,9 +36,9 @@ export const projects = [
     description: "My family’s experience with diabetes inspired me to co-found Thrive and explore how meal and wearable data could support personalized glucose forecasting.",
     details: [
       "Led development of a PyTorch forecasting model trained on 587 meal and sensor sequences containing 7,559 glucose readings. The training pipeline combines glucose, meals, medication, activity, sleep, and heart-rate data.",
-      "Designed PostgreSQL and Supabase data infrastructure and contributed to React Native integration. The model incorporates physiological assumptions about glucose dynamics and carbohydrate absorption.",
+      "Designed PostgreSQL and Supabase data infrastructure and contributed to React Native integration using Expo. The model incorporates physiological assumptions about glucose dynamics and carbohydrate absorption.",
     ],
-    tech: ["Python", "PyTorch", "PostgreSQL", "Supabase", "React Native"],
+    tech: ["Python", "PyTorch", "PostgreSQL", "Supabase", "React Native", "Expo"],
     images: [{ src: "/projects/Thrive-dashboard.png", alt: "Thrive mobile glucose dashboard" }],
     links: [],
   },
@@ -70,11 +70,18 @@ export const projects = [
     title: "ROS 2 Color-Based Object Tracker",
     category: "Computer vision",
     group: "Robotics" as const,
-    description: "I built a ROS 2 vision pipeline that segments camera images by color and locates the target within each frame.",
+    description: "I built a real-time tracker that detects red objects with a Mac webcam and sends their coordinates to ROS 2 Humble running in Docker.",
     details: [
-      "Used OpenCV for segmentation and image-space localization, then connected the processing components with ROS 2 publishers and subscribers to communicate tracking results.",
+      "OpenCV captures webcam frames, isolates red objects with HSV masks, and finds the target contour and centroid. The preview overlays the contour and labels the centroid coordinates.",
+      "tracker_sender.py sends the (x, y) coordinates over TCP from the Mac to Docker. A ROS 2 detector node publishes them on /object_position.",
+      "A position reporter subscribes to /object_position and classifies horizontal position as left, center, or right and vertical position as top, middle, or bottom.",
     ],
-    tech: ["Python", "ROS 2", "OpenCV", "Docker"],
+    tech: ["Python", "OpenCV", "ROS 2 Humble", "Docker", "TCP sockets"],
+    images: [
+      { src: "/projects/tracker-no-target.png", alt: "Blue cup with a no red detected message", caption: "No red target detected" },
+      { src: "/projects/tracker-detected.png", alt: "Red target marked with a green contour and yellow centroid", caption: "Target detected and centroid marked" },
+      { src: "/projects/tracker-tracking.png", alt: "Red target at a new location with updated centroid coordinates", caption: "Tracking the target at a new position" },
+    ],
     links: [],
   },
 ];
