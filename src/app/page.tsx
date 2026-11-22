@@ -1,7 +1,7 @@
+import Image from "next/image";
+import ProjectShowcase from "../components/ProjectShowcase";
 import { ArrowDown, ArrowUpRight, FileText, Mail } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
-import ProjectCard from "../components/ProjectCard";
-import { projects } from "./projects";
 
 const github = "https://github.com/Peanut2478";
 const linkedin = "https://www.linkedin.com/in/nishtha-patel-mj2478/";
@@ -11,7 +11,7 @@ export default function Home() {
     <>
       <a className="skip-link" href="#main">Skip to content</a>
       <header className="shell site-header">
-        <a className="wordmark" href="#" aria-label="Nishtha Patel home">NP<span>.</span></a>
+        <a className="wordmark" href="#" aria-label="Nishtha Patel home">Nishtha<span>.</span></a>
         <nav aria-label="Main navigation">
           <a href="#projects">Projects</a>
           <a href="#about">About</a>
@@ -21,25 +21,34 @@ export default function Home() {
 
       <main id="main">
         <section className="shell hero" aria-labelledby="hero-title">
-          <p className="eyebrow">Texas A&amp;M University</p>
-          <h1 id="hero-title">Nishtha Patel<span>.</span></h1>
-          <p className="hero-subtitle">Software engineering <span>&amp;</span> applied machine learning</p>
-          <p className="hero-intro">I build full-stack applications and use data to study how biological and robotic systems behave.</p>
-          <div className="link-row hero-actions">
-            <a className="primary-button" href="#projects">Explore projects <ArrowDown size={17} aria-hidden="true" /></a>
-            <a className="secondary-button" href="#resumes"><FileText size={17} aria-hidden="true" /> Résumés</a>
+          <div className="hero-copy">
+            <p className="eyebrow">Texas A&amp;M University</p>
+            <h1 id="hero-title">Nishtha <span>Patel</span></h1>
+            <p className="hero-subtitle">Software engineering <span>&amp;</span> applied machine learning</p>
+            <p className="hero-intro">I build full-stack applications and use data to study how biological and robotic systems behave.</p>
+            <div className="link-row hero-actions">
+              <a className="primary-button" href="#projects">Explore projects <ArrowDown size={17} aria-hidden="true" /></a>
+              <a className="secondary-button" href="#resumes"><FileText size={17} aria-hidden="true" /> Résumés</a>
+            </div>
+            <div className="link-row socials">
+              <a href={github} target="_blank" rel="noopener noreferrer"><FaGithub aria-hidden="true" /> GitHub</a>
+              <a href={linkedin} target="_blank" rel="noopener noreferrer"><FaLinkedin aria-hidden="true" /> LinkedIn</a>
+            </div>
           </div>
-          <div className="link-row socials">
-            <a href={github} target="_blank" rel="noopener noreferrer"><FaGithub aria-hidden="true" /> GitHub</a>
-            <a href={linkedin} target="_blank" rel="noopener noreferrer"><FaLinkedin aria-hidden="true" /> LinkedIn</a>
-          </div>
+          <figure className="hero-feature">
+            <div className="hero-feature-image">
+              <Image src="/projects/visual-cortex.png" alt="" fill sizes="(min-width: 850px) 470px, 90vw" unoptimized />
+            </div>
+            <figcaption className="hero-feature-caption">
+              <small>Machine learning research</small>
+              Visual Cortex Decoder
+            </figcaption>
+          </figure>
         </section>
 
         <section className="shell content-section" id="projects" aria-labelledby="projects-title">
           <h2 id="projects-title">Selected projects</h2>
-          <div className="project-grid">
-            {projects.map((project) => <ProjectCard key={project.title} project={project} />)}
-          </div>
+          <ProjectShowcase />
         </section>
 
         <section className="shell content-section" id="about" aria-labelledby="about-title">

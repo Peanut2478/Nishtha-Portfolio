@@ -2,6 +2,7 @@ export const projects = [
   {
     title: "Visual Cortex Decoder",
     category: "Machine learning research",
+    group: "AI / ML" as const,
     description: "Can neural activity reveal which direction a mouse saw a pattern move? I trained a decoder on recordings from 207 visual cortex neurons to classify eight directions.",
     details: [
       "Compared a PyTorch neural network against logistic regression using calcium imaging data from the Allen Brain Observatory. The models achieved 63.33% and 62.50% held-out test accuracy, respectively.",
@@ -14,6 +15,7 @@ export const projects = [
   {
     title: "Milk Administration Dashboard V2",
     category: "Full-stack application · Deployed",
+    group: "Full stack" as const,
     description: "I independently built and deployed a hospital administration dashboard that brings milk inventory, billing, and reporting into one interface.",
     details: [
       "Built the Vue and TypeScript interface and connected its inventory and billing workflows to a Supabase-backed PostgreSQL database.",
@@ -30,6 +32,7 @@ export const projects = [
   {
     title: "Thrive",
     category: "Applied ML · Research prototype",
+    group: "AI / ML" as const,
     description: "My family’s experience with diabetes inspired me to co-found Thrive and explore how meal and wearable data could support personalized glucose forecasting.",
     details: [
       "Led development of a PyTorch forecasting model trained on 587 meal and sensor sequences containing 7,559 glucose readings. The training pipeline combines glucose, meals, medication, activity, sleep, and heart-rate data.",
@@ -42,6 +45,7 @@ export const projects = [
   {
     title: "POBS Underwater Robotics",
     category: "Turtle Robotics · Team R&D",
+    group: "Robotics" as const,
     description: "I develop and test ROS 2 software for an underwater robotics platform, focusing on state estimation and navigation in Gazebo.",
     details: [
       "Implemented a state-estimation node that publishes odometry and integrated the BNO055 IMU driver into the ROS 2 sensor pipeline.",
@@ -65,6 +69,7 @@ export const projects = [
   {
     title: "ROS 2 Color-Based Object Tracker",
     category: "Computer vision",
+    group: "Robotics" as const,
     description: "I built a ROS 2 vision pipeline that segments camera images by color and locates the target within each frame.",
     details: [
       "Used OpenCV for segmentation and image-space localization, then connected the processing components with ROS 2 publishers and subscribers to communicate tracking results.",
